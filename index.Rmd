@@ -11,4 +11,6 @@ output:
 
 ## Project thoughts
 
-I am interested in exploring data related to childcare or education in the United States.
+I am interested in exploring data related to childcare or education in the United States. I am also interested in programs like SNAP and WIC.
+
+

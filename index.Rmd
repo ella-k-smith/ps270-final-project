@@ -13,4 +13,19 @@ output:
 
 I am interested in exploring data related to childcare or education in the United States. I am also interested in programs like SNAP and WIC.
 
+## Proposal
+
+For this project, I want to examine whether states with higher incarceration levels tend to have lower voter turnout in the 2024 presidential election. My hypothesis is that higher incarceration levels will be associated with lower turnout. One possible explanation is that states with larger incarcerated populations may reflect broader institutional environments that are less politically inclusive. High incarceration can disrupt communities, weaken social networks, and reduce civic engagement, which may lower participation more generally. The independent variable in my analysis will be the number of incarcerated individuals in each state in Q1 2024, using state level incarceration data. This varies widely across states, which makes it possible to compare them. The dependent variable will be each state’s 2024 voter turnout rate, measured as the percentage of the voting eligible population that cast a ballot. If my hypothesis is correct, I would expect to see a negative relationship between incarceration levels and turnout. If there is no clear relationship, or if the relationship is positive, that would not support my hypothesis.
+
+```{r}
+library(readxl)
+library(readr)
+
+incarceration <- read_excel("Prisonpopulation.xlsx")
+
+turnout <- read_csv("Voterturnout.csv", show_col_types = FALSE)
+
+head(incarceration)
+head(turnout)
+```
 

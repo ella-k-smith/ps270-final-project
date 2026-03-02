@@ -116,7 +116,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.30/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.30/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js","Prisonpopulation.xlsx","Voterturnout.csv"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1546,7 +1546,46 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="d-article">
 <h2 id="project-thoughts">Project thoughts</h2>
 <p>I am interested in exploring data related to childcare or education in the United States. I am also interested in programs like SNAP and WIC.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h2 id="proposal">Proposal</h2>
+<p>For this project, I want to examine whether states with higher incarceration levels tend to have lower voter turnout in the 2024 presidential election. My hypothesis is that higher incarceration levels will be associated with lower turnout. One possible explanation is that states with larger incarcerated populations may reflect broader institutional environments that are less politically inclusive. High incarceration can disrupt communities, weaken social networks, and reduce civic engagement, which may lower participation more generally. The independent variable in my analysis will be the number of incarcerated individuals in each state in Q1 2024, using state level incarceration data. This varies widely across states, which makes it possible to compare them. The dependent variable will be each state’s 2024 voter turnout rate, measured as the percentage of the voting eligible population that cast a ballot. If my hypothesis is correct, I would expect to see a negative relationship between incarceration levels and turnout. If there is no clear relationship, or if the relationship is positive, that would not support my hypothesis.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://readxl.tidyverse.org'>readxl</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://readr.tidyverse.org'>readr</a></span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>incarceration</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readxl.tidyverse.org/reference/read_excel.html'>read_excel</a></span><span class='op'>(</span><span class='st'>"Prisonpopulation.xlsx"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>turnout</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"Voterturnout.csv"</span>, show_col_types <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>incarceration</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code># A tibble: 6 × 2
+  `Vera Institute of Justice`                                    ...2 
+  &lt;chr&gt;                                                          &lt;chr&gt;
+1 &quot;People in Jail and Prison in 2024 Data Appendix&quot;              &lt;NA&gt; 
+2 &quot;October 30, 2024&quot;                                             &lt;NA&gt; 
+3 &quot;jail-data contains counts of the number of people in local j… &lt;NA&gt; 
+4 &quot;See People in Jail and Prison in 2024 report methods and sou… &lt;NA&gt; 
+5 &quot;Note: Alaska, Connecticut, Delaware, Hawaii, Rhode Island, a… &lt;NA&gt; 
+6 &quot;Contact: Jacob Kang-Brown, jkangbrown@vera.org&quot;               &lt;NA&gt; </code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>turnout</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code># A tibble: 6 × 14
+  STATE    STATE_ABV TOTAL_BALLOTS_COUNTED ...4     VAP NONCITIZEN_PCT
+  &lt;chr&gt;    &lt;chr&gt;                     &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;         
+1 United … US                    156766239 &lt;NA&gt;  2.65e8 7.88%         
+2 Alabama  AL                      2270000 http… 4.02e6 2.69%         
+3 Alaska   AK                       340981 http… 5.61e5 3.28%         
+4 Arizona  AZ                      3428011 http… 5.95e6 7.99%         
+5 Arkansas AR                      1190172 http… 2.39e6 4.06%         
+6 Califor… CA                     16140044 http… 3.06e7 14.69%        
+# ℹ 8 more variables: INELIGIBLE_PRISON &lt;dbl&gt;,
+#   INELIGIBLE_PROBATION &lt;dbl&gt;, INELIGIBLE_PAROLE &lt;dbl&gt;,
+#   INELIGIBLE_FELONS_TOTAL &lt;dbl&gt;, ELIGIBLE_OVERSEAS &lt;dbl&gt;,
+#   VEP &lt;dbl&gt;, VEP_TURNOUT_RATE &lt;chr&gt;, VAP_TURNOUT_RATE &lt;chr&gt;</code></pre>
+</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

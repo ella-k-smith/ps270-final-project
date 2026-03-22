@@ -20,12 +20,54 @@ For this project, I want to examine whether states with higher incarceration lev
 ```{r}
 library(readxl)
 library(readr)
+library(dplyr)
+library(ggplot2)
 
-incarceration <- read_excel("Prisonpopulation.xlsx")
+incarceration <- read_excel("Prisonpopulation.xlsx", sheet = "prison-data", skip = 6)
 
 turnout <- read_csv("Voterturnout.csv", show_col_types = FALSE)
 
 head(incarceration)
+```
+```{r}
+incarceration <- incarceration |>
+  slice(-(1:2)) |>
+  select(state= 1, incarcerated = 9) |>
+  filter(state != "state_name") |>
+  mutate(incarcerated = as.numeric(incarcerated))
+
+head(incarceration)
+```
+
+```{r}
+turnout <- turnout |>
+  mutate(
+    turnout_rate = as.numeric(gsub("%", "", VEP_TURNOUT_RATE)),
+    state = trimws(STATE)
+  ) |>
+  filter(state != "United States")
+
 head(turnout)
 ```
+
+```{r}
+data <- inner_join(incarceration, turnout, by = "state")
+data <- data |>
+  select(state, incarcerated, turnout_rate)
+head(data)
+```
+
+```{r}
+ggplot(data, aes(x = incarcerated, y = turnout_rate)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    title = "Relationship Between Incarceration and Voter Turnout by State (2024)",
+    x = "Number of Incarcerated Individuals",
+    y = "Voter Turnout Rate (%)"
+  ) +
+  theme_minimal() +
+  scale_x_continuous(labels = scales::comma)
+```
+
 

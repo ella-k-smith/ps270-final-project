@@ -8,15 +8,14 @@ output:
 ---
 
 
-
-## Project thoughts
-
-I am interested in exploring data related to childcare or education in the United States. I am also interested in programs like SNAP and WIC.
-
 ## Proposal
 
-For this project, I want to examine whether states with higher incarceration levels tend to have lower voter turnout in the 2024 presidential election. My hypothesis is that higher incarceration levels will be associated with lower turnout. One possible explanation is that states with larger incarcerated populations may reflect broader institutional environments that are less politically inclusive. High incarceration can disrupt communities, weaken social networks, and reduce civic engagement, which may lower participation more generally. The independent variable in my analysis will be the number of incarcerated individuals in each state in Q1 2024, using state level incarceration data. This varies widely across states, which makes it possible to compare them. The dependent variable will be each state’s 2024 voter turnout rate, measured as the percentage of the voting eligible population that cast a ballot. If my hypothesis is correct, I would expect to see a negative relationship between incarceration levels and turnout. If there is no clear relationship, or if the relationship is positive, that would not support my hypothesis.
+For this project, I want to examine whether states with higher incarceration levels tend to have lower voter turnout in the 2024 presidential election. 
 
+My hypothesis is that higher incarceration levels will be associated with lower turnout. One possible explanation is that states with larger incarcerated populations may reflect broader institutional environments that are less politically inclusive. High incarceration can disrupt communities, weaken social networks, and reduce civic engagement, which may lower participation more generally. The independent variable in my analysis will be the number of incarcerated individuals in each state in Q1 2024, using state level incarceration data. This varies widely across states, which makes it possible to compare them. The dependent variable will be each state’s 2024 voter turnout rate, measured as the percentage of the voting eligible population that cast a ballot. If my hypothesis is correct, I would expect to see a negative relationship between incarceration levels and turnout. If there is no clear relationship, or if the relationship is positive, that would not support my hypothesis.
+
+
+## Data
 ```{r}
 library(readxl)
 library(readr)
@@ -26,8 +25,6 @@ library(ggplot2)
 incarceration <- read_excel("Prisonpopulation.xlsx", sheet = "prison-data", skip = 6)
 
 turnout <- read_csv("Voterturnout.csv", show_col_types = FALSE)
-
-head(incarceration)
 ```
 ```{r}
 incarceration <- incarceration |>
@@ -35,8 +32,6 @@ incarceration <- incarceration |>
   select(state= 1, incarcerated = 9) |>
   filter(state != "state_name") |>
   mutate(incarcerated = as.numeric(incarcerated))
-
-head(incarceration)
 ```
 
 ```{r}
@@ -46,16 +41,18 @@ turnout <- turnout |>
     state = trimws(STATE)
   ) |>
   filter(state != "United States")
-
-head(turnout)
 ```
 
 ```{r}
 data <- inner_join(incarceration, turnout, by = "state")
 data <- data |>
   select(state, incarcerated, turnout_rate)
-head(data)
 ```
+
+
+## Results
+
+The figure below shows the relationship between incarceration levels and voter turnout across states.
 
 ```{r}
 ggplot(data, aes(x = incarcerated, y = turnout_rate)) +
@@ -67,7 +64,18 @@ ggplot(data, aes(x = incarcerated, y = turnout_rate)) +
     y = "Voter Turnout Rate (%)"
   ) +
   theme_minimal() +
-  scale_x_continuous(labels = scales::comma)
+  scale_x_log10(labels = scales::comma)
 ```
 
+The scatterplot suggests a slight negative relationship between incarceration and voter turnout, meaning that states with higher incarceration levels tend to have somewhat lower turnout. However, the relationship appears weak, as the data points are widely dispersed.To further examine this relationship, I estimate a linear regression model.
 
+```{r}
+model <- lm(turnout_rate ~ incarcerated, data = data)
+
+library(knitr)
+kable(summary(model)$coefficients)
+```
+
+The regression results show a negative coefficient on incarceration, which is consistent with the hypothesis. However, the coefficient is not statistically significant, meaning there is not strong evidence of a relationship between incarceration and turnout. The estimated effect is also very small.
+
+Because this analysis is observational and cross-sectional, the results should not be interpreted as causal. Other factors, such as education, income, or state voting laws, may influence turnout and confound the relationship.

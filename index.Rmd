@@ -106,5 +106,6 @@ This analysis is observational and cross-sectional, so the results shouldn't be 
 
 Overall, I find limited support for my hypothesis that higher incarceration levels are associated with lower voter turnout. While the estimated relationship is negative, it isn't statistically significant and the effect size is very small. This suggests there isn't strong enough evidence of a meaningful relationship within this analysis. One limitation of this study is that it relies on cross-sectional data, which makes it difficult to draw causal conclusions. There could also be omitted variables, like income, education levels, or differences in voting laws, that impact both incarceration and turnout. In addition, measurement differences across states could introduce variability into the analysis. If I had more resources and/or time, I would improve this analysis by adding additional control variables to account for potential confounders, or by using data over multiple years to better understand changes over time. For example, future projects could incorporate state-level income measures, education level, or voting policies as control variables. This would provide a stronger picture of whether incarceration has a meaningful impact on voter turnout.
 
+
 ```{r print-code, ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE}
 ```

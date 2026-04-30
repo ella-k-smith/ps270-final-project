@@ -89,7 +89,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>PS270 Final Project</title>
+  <title>Incarceration and Voter Turnout Across U.S. States</title>
 
   <meta property="description" itemprop="description" content="My final project"/>
 
@@ -97,21 +97,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <meta name="article:author" content="Ella Smith"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="PS270 Final Project"/>
+  <meta property="og:title" content="Incarceration and Voter Turnout Across U.S. States"/>
   <meta property="og:type" content="article"/>
   <meta property="og:description" content="My final project"/>
   <meta property="og:locale" content="en_US"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="PS270 Final Project"/>
+  <meta property="twitter:title" content="Incarceration and Voter Turnout Across U.S. States"/>
   <meta property="twitter:description" content="My final project"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","description","output"]}},"value":[{"type":"character","attributes":{},"value":["PS270 Final Project"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Ella Smith"]}]}]},{"type":"character","attributes":{},"value":["My final project"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","description","output"]}},"value":[{"type":"character","attributes":{},"value":["Incarceration and Voter Turnout Across U.S. States"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Ella Smith"]}]}]},{"type":"character","attributes":{},"value":["My final project"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1519,7 +1519,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"PS270 Final Project","description":"My final project","authors":[{"author":"Ella Smith","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}]}
+{"title":"Incarceration and Voter Turnout Across U.S. States","description":"My final project","authors":[{"author":"Ella Smith","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1529,7 +1529,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>PS270 Final Project</h1>
+<h1>Incarceration and Voter Turnout Across U.S. States</h1>
 
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
@@ -1544,53 +1544,98 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
-<h2 id="proposal">Proposal</h2>
-<p>For this project, I want to examine whether states with higher incarceration levels tend to have lower voter turnout in the 2024 presidential election.</p>
-<p>My hypothesis is that higher incarceration levels will be associated with lower turnout. One possible explanation is that states with larger incarcerated populations may reflect broader institutional environments that are less politically inclusive. High incarceration can disrupt communities, weaken social networks, and reduce civic engagement, which may lower participation more generally. The independent variable in my analysis will be the number of incarcerated individuals in each state in Q1 2024, using state level incarceration data. This varies widely across states, which makes it possible to compare them. The dependent variable will be each state’s 2024 voter turnout rate, measured as the percentage of the voting eligible population that cast a ballot. If my hypothesis is correct, I would expect to see a negative relationship between incarceration levels and turnout. If there is no clear relationship, or if the relationship is positive, that would not support my hypothesis.</p>
+<h2 id="introduction">Introduction</h2>
+<p>In this project, I examine whether states with higher incarceration levels tended to have lower voter turnout in the 2024 presidential election.</p>
+<p>My hypothesis is that higher incarceration levels are associated with lower turnout. One possible explanation is that states with larger incarcerated populations may reflect larger, less politically inclusive institutional environments. High incarceration can disrupt communities, weaken social relationships, and reduce civic involvement, which could lower participation more broadly This makes the relationship important for understanding larger patterns of political inequality across various states in the U.S.</p>
+<p>The independent variable is the number of incarcerated individuals in each state in Q1 2024. This varies widely across states, which makes it possible to compare them. The dependent variable is each state’s 2024 voter turnout rate, measured as the percentage of the voting eligible population that cast a ballot.</p>
+<p>If my hypothesis is correct, I’d expect to see a negative relationship between incarceration levels and turnout. If there is no clear relationship or if the relationship is positive, this wouldn’t support my hypothesis.</p>
 <h2 id="data">Data</h2>
+<p>This analysis uses state level data on both incarceration and voter turnout in the 2024 presidential election. The incarceration data comes from the Vera Institute of Justice, and the voter turnout data comes from the University of Florida’s Election Lab. The voter turnout data measures the percentage of the voting eligible population that casted a ballot in each state. After cleaning both datasets, I merge them by state, that way each observation represents one state.</p>
+<p>The dependent variable in this analysis is voter turnout rate, measured as the percentage of eligible voters who voted in 2024. The main independent variable is the number of incarcerated people in each state. Both variables vary widely across states so that allows for a comparison of how incarceration levels relate to political participation across states.</p>
+<p>This is a cross-sectional analysis, since it compares different states at one point in time. I test my hypothesis using a linear regression model. A negative coefficient on incarceration would support my hypothesis that higher incarceration is associated with lower turnout. A positive or non-significant relationship wouldn’t support my hypothesis.</p>
+<p>The figure below shows the distribution of voter turnout rates across states in 2024.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="index_files/figure-html5/unnamed-chunk-5-1.png" alt="" width="624" /></p>
+</div>
+<p>The distribution of voter turnout rates across states appears to be centered in the mid-60% range with some variation across states and no obvious extreme values.</p>
+<h2 id="results">Results</h2>
+<p>The figure below illustrates the relationship between incarceration levels and voter turnout across U.S. states in 2024. Incarceration levels vary widely across states, so the x-axis is shown on a log scale.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="index_files/figure-html5/unnamed-chunk-6-1.png" alt="" width="624" /></p>
+</div>
+<p>The scatterplot is suggesting a slight negative relationship between incarceration and voter turnout, meaning that states with higher incarceration levels tend to have somewhat lower turnout. However, the relationship appears weak, as the data points are widely spread out. To examine this more formally, I estimate a linear regression model (Table 1 presents the results of this regression).</p>
+<div class="layout-chunk" data-layout="l-body">
+<table>
+<caption><span id="tab:unnamed-chunk-7">Table 1: </span>Regression Results: Effect of Incarceration on Voter Turnout</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">Estimate</th>
+<th style="text-align: right;">Std. Error</th>
+<th style="text-align: right;">t value</th>
+<th style="text-align: right;">p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">65.83151</td>
+<td style="text-align: right;">1.13620</td>
+<td style="text-align: right;">57.93999</td>
+<td style="text-align: right;">0.00000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">incarcerated</td>
+<td style="text-align: right;">-0.00004</td>
+<td style="text-align: right;">0.00003</td>
+<td style="text-align: right;">-1.06240</td>
+<td style="text-align: right;">0.29337</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>These regression results show a negative coefficient on incarceration which is consistent with my hypothesis. Looking at the size of the effect, the coefficient suggests that a one-unit increase in incarceration is associated with a very small decrease in voter turnout, essentially close to zero. However, the p-value is approximately 0.29 which is above the conventional 0.05 threshold. This means the relationship is not statistically significant and we can’t reject the null hypothesis of no relationship.</p>
+<p>Due to this, there isn’t strong evidence that incarceration levels are meaningfully related to voter turnout in this dataset. While the direction of the relationship matches what I anticipated, the effect is extremely small and imprecise</p>
+<p>This analysis is observational and cross-sectional, so the results shouldn’t be interpreted as causal. A valid confounder would need to impact both incarceration rates and voter turnout. Factors like income, education, or state voting laws, for example, could influence both variables and bias the results. While a confounder could be masking a true effect, the lack of statistical significance suggests that any relationship (if it exists) is probably small or difficult to detect with this data.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Overall, I find limited support for my hypothesis that higher incarceration levels are associated with lower voter turnout. While the estimated relationship is negative, it isn’t statistically significant and the effect size is very small. This suggests there isn’t strong enough evidence of a meaningful relationship within this analysis.</p>
+<p>One limitation of this study is that it relies on cross-sectional data, which makes it difficult to draw causal conclusions. There could also be omitted variables, like income, education levels, or differences in voting laws, that impact both incarceration and turnout. In addition, measurement differences across states could introduce variability into the analysis.</p>
+<p>If I had more resources and/or time, I would improve this analysis by adding additional control variables to account for potential confounders, or by using data over multiple years to better understand changes over time. For example, future projects could incorporate state-level income measures, education level, or voting policies as control variables. This would provide a stronger picture of whether incarceration has a meaningful impact on voter turnout.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://readxl.tidyverse.org'>readxl</a></span><span class='op'>)</span></span>
 <span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://readr.tidyverse.org'>readr</a></span><span class='op'>)</span></span>
 <span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span></span>
 <span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://yihui.org/knitr/'>knitr</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
 <span></span>
 <span><span class='va'>incarceration</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readxl.tidyverse.org/reference/read_excel.html'>read_excel</a></span><span class='op'>(</span><span class='st'>"Prisonpopulation.xlsx"</span>, sheet <span class='op'>=</span> <span class='st'>"prison-data"</span>, skip <span class='op'>=</span> <span class='fl'>6</span><span class='op'>)</span></span>
 <span></span>
-<span><span class='va'>turnout</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"Voterturnout.csv"</span>, show_col_types <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></span></code></pre>
-</div>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>incarceration</span> <span class='op'>&lt;-</span> <span class='va'>incarceration</span> <span class='op'>|&gt;</span></span>
+<span><span class='va'>turnout</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"Voterturnout.csv"</span>, show_col_types <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></span>
+<span><span class='va'>incarceration</span> <span class='op'>&lt;-</span> <span class='va'>incarceration</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice</a></span><span class='op'>(</span><span class='op'>-</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span>state<span class='op'>=</span> <span class='fl'>1</span>, incarcerated <span class='op'>=</span> <span class='fl'>9</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>state</span> <span class='op'>!=</span> <span class='st'>"state_name"</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>incarcerated <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>incarcerated</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
-</div>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>turnout</span> <span class='op'>&lt;-</span> <span class='va'>turnout</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>incarcerated <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>incarcerated</span><span class='op'>)</span><span class='op'>)</span></span>
+<span><span class='va'>turnout</span> <span class='op'>&lt;-</span> <span class='va'>turnout</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span></span>
 <span>    turnout_rate <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/grep.html'>gsub</a></span><span class='op'>(</span><span class='st'>"%"</span>, <span class='st'>""</span>, <span class='va'>VEP_TURNOUT_RATE</span><span class='op'>)</span><span class='op'>)</span>,</span>
 <span>    state <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/trimws.html'>trimws</a></span><span class='op'>(</span><span class='va'>STATE</span><span class='op'>)</span></span>
 <span>  <span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>state</span> <span class='op'>!=</span> <span class='st'>"United States"</span><span class='op'>)</span></span></code></pre>
-</div>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>inner_join</a></span><span class='op'>(</span><span class='va'>incarceration</span>, <span class='va'>turnout</span>, by <span class='op'>=</span> <span class='st'>"state"</span><span class='op'>)</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>state</span> <span class='op'>!=</span> <span class='st'>"United States"</span><span class='op'>)</span></span>
+<span><span class='va'>data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>inner_join</a></span><span class='op'>(</span><span class='va'>incarceration</span>, <span class='va'>turnout</span>, by <span class='op'>=</span> <span class='st'>"state"</span><span class='op'>)</span></span>
 <span><span class='va'>data</span> <span class='op'>&lt;-</span> <span class='va'>data</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>state</span>, <span class='va'>incarcerated</span>, <span class='va'>turnout_rate</span><span class='op'>)</span></span></code></pre>
-</div>
-</div>
-<h2 id="results">Results</h2>
-<p>The figure below shows the relationship between incarceration levels and voter turnout across states.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>incarcerated</span>, y <span class='op'>=</span> <span class='va'>turnout_rate</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>state</span>, <span class='va'>incarcerated</span>, <span class='va'>turnout_rate</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>turnout_rate</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_histogram.html'>geom_histogram</a></span><span class='op'>(</span>bins <span class='op'>=</span> <span class='fl'>15</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    title <span class='op'>=</span> <span class='st'>"Distribution of Voter Turnout Rates Across States (2024)"</span>,</span>
+<span>    x <span class='op'>=</span> <span class='st'>"Voter Turnout Rate (%)"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Number of States"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>incarcerated</span>, y <span class='op'>=</span> <span class='va'>turnout_rate</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span>, se <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
@@ -1599,48 +1644,14 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span>    y <span class='op'>=</span> <span class='st'>"Voter Turnout Rate (%)"</span></span>
 <span>  <span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_log10</a></span><span class='op'>(</span>labels <span class='op'>=</span> <span class='fu'>scales</span><span class='fu'>::</span><span class='va'><a href='https://scales.r-lib.org/reference/comma.html'>comma</a></span><span class='op'>)</span></span></code></pre>
-</div>
-<p><img src="index_files/figure-html5/unnamed-chunk-5-1.png" alt="" width="624" /></p>
-</div>
-<p>The scatterplot suggests a slight negative relationship between incarceration and voter turnout, meaning that states with higher incarceration levels tend to have somewhat lower turnout. However, the relationship appears weak, as the data points are widely dispersed.To further examine this relationship, I estimate a linear regression model.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>model</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>turnout_rate</span> <span class='op'>~</span> <span class='va'>incarcerated</span>, data <span class='op'>=</span> <span class='va'>data</span><span class='op'>)</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_log10</a></span><span class='op'>(</span>labels <span class='op'>=</span> <span class='fu'>scales</span><span class='fu'>::</span><span class='va'><a href='https://scales.r-lib.org/reference/comma.html'>comma</a></span><span class='op'>)</span></span>
+<span><span class='va'>model</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>turnout_rate</span> <span class='op'>~</span> <span class='va'>incarcerated</span>, data <span class='op'>=</span> <span class='va'>data</span><span class='op'>)</span></span>
 <span></span>
-<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://yihui.org/knitr/'>knitr</a></span><span class='op'>)</span></span>
-<span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>model</span><span class='op'>)</span><span class='op'>$</span><span class='va'>coefficients</span><span class='op'>)</span></span></code></pre>
+<span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>model</span><span class='op'>)</span><span class='op'>$</span><span class='va'>coefficients</span>, <span class='fl'>5</span><span class='op'>)</span>,</span>
+<span>      col.names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Estimate"</span>, <span class='st'>"Std. Error"</span>, <span class='st'>"t value"</span>, <span class='st'>"p-value"</span><span class='op'>)</span>,</span>
+<span>      caption <span class='op'>=</span> <span class='st'>"Regression Results: Effect of Incarceration on Voter Turnout"</span><span class='op'>)</span></span></code></pre>
 </div>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: right;">Estimate</th>
-<th style="text-align: right;">Std. Error</th>
-<th style="text-align: right;">t value</th>
-<th style="text-align: right;">Pr(&gt;|t|)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">65.8315071</td>
-<td style="text-align: right;">1.136202</td>
-<td style="text-align: right;">57.939986</td>
-<td style="text-align: right;">0.0000000</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">incarcerated</td>
-<td style="text-align: right;">-0.0000351</td>
-<td style="text-align: right;">0.000033</td>
-<td style="text-align: right;">-1.062399</td>
-<td style="text-align: right;">0.2933705</td>
-</tr>
-</tbody>
-</table>
 </div>
-<p>The regression results show a negative coefficient on incarceration, which is consistent with the hypothesis. However, the coefficient is not statistically significant, meaning there is not strong evidence of a relationship between incarceration and turnout. The estimated effect is also very small.</p>
-<p>Because this analysis is observational and cross-sectional, the results should not be interpreted as causal. Other factors, such as education, income, or state voting laws, may influence turnout and confound the relationship.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

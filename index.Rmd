@@ -9,13 +9,9 @@ output:
 
 ## Introduction
 
-In this project, I examine whether states with higher incarceration levels tended to have lower voter turnout in the 2024 presidential election.
+In this project, I examine whether states with higher incarceration levels tended to have lower voter turnout in the 2024 presidential election. My hypothesis is that higher incarceration levels are associated with lower turnout. One possible explanation is that states with larger incarcerated populations may reflect larger, less politically inclusive institutional environments. High incarceration can disrupt communities, weaken social relationships, and reduce civic involvement, which could lower participation more broadly This makes the relationship important for understanding larger patterns of political inequality across various states in the U.S.
 
-My hypothesis is that higher incarceration levels are associated with lower turnout. One possible explanation is that states with larger incarcerated populations may reflect larger, less politically inclusive institutional environments. High incarceration can disrupt communities, weaken social relationships, and reduce civic involvement, which could lower participation more broadly This makes the relationship important for understanding larger patterns of political inequality across various states in the U.S.
-
-The independent variable is the number of incarcerated individuals in each state in Q1 2024. This varies widely across states, which makes it possible to compare them. The dependent variable is each state’s 2024 voter turnout rate, measured as the percentage of the voting eligible population that cast a ballot.
-
-If my hypothesis is correct, I'd expect to see a negative relationship between incarceration levels and turnout. If there is no clear relationship or if the relationship is positive, this wouldn't support my hypothesis.
+The independent variable is the number of incarcerated individuals in each state in Q1 2024. This varies widely across states, which makes it possible to compare them. The dependent variable is each state’s 2024 voter turnout rate, measured as the percentage of the voting eligible population that cast a ballot. If my hypothesis is correct, I'd expect to see a negative relationship between incarceration levels and turnout. If there is no clear relationship or if the relationship is positive, this wouldn't support my hypothesis.
 
 ## Data
 
@@ -102,9 +98,7 @@ kable(round(summary(model)$coefficients, 5),
       caption = "Regression Results: Effect of Incarceration on Voter Turnout")
 ```
 
-These regression results show a negative coefficient on incarceration which is consistent with my hypothesis. Looking at the size of the effect, the coefficient suggests that a one-unit increase in incarceration is associated with a very small decrease in voter turnout, essentially close to zero. However, the p-value is approximately 0.29 which is above the conventional 0.05 threshold. This means the relationship is not statistically significant and we can't reject the null hypothesis of no relationship.
-
-Due to this, there isn't strong evidence that incarceration levels are meaningfully related to voter turnout in this dataset. While the direction of the relationship matches what I anticipated, the effect is extremely small and imprecise
+These regression results show a negative coefficient on incarceration which is consistent with my hypothesis. Looking at the size of the effect, the coefficient suggests that a one-unit increase in incarceration is associated with a very small decrease in voter turnout, essentially close to zero. However, the p-value is approximately 0.29 which is above the conventional 0.05 threshold. This means the relationship is not statistically significant and we can't reject the null hypothesis of no relationship. Due to this, there isn't strong evidence that incarceration levels are meaningfully related to voter turnout in this dataset. While the direction of the relationship matches what I anticipated, the effect is extremely small and imprecise
 
 This analysis is observational and cross-sectional, so the results shouldn't be interpreted as causal. A valid confounder would need to impact both incarceration rates and voter turnout. Factors like income, education, or state voting laws, for example, could influence both variables and bias the results. While a confounder could be masking a true effect, the lack of statistical significance suggests that any relationship (if it exists) is probably small or difficult to detect with this data.
 
